@@ -59,34 +59,6 @@ server:
 uf <config_url>
 ```
 
-### 4. 安装并配置环境
-
-如果您没有将 `uf` 添加到环境变量中，执行 `uf` 命令时，它将自动进行安装并配置环境：
-
-```bash
-uf
-```
-
-## 配置文件示例
-
-```yaml
-files:
-  - source: "./data/*"
-    destination: "/home/user/data"
-  - source: "./logs"
-    destination: "/home/user/logs"
-
-scripts:
-  - script_path: "./scripts/setup.sh"
-    remote_path: "/home/user/setup.sh"
-    execute_on_ssh: true
-    delete_after_execution: true
-  - script_path: "./scripts/cleanup.sh"
-    remote_path: "/home/user/cleanup.sh"
-    execute_on_ssh: false
-    delete_after_execution: false
-```
-
 ### 说明
 - 本地路径 `./data/*` 表示将本地 `data` 文件夹中的所有文件上传到远程服务器。
 - 配置文件中的脚本可以选择在上传后通过 SSH 执行。
